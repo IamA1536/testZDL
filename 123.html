@@ -1,13 +1,48 @@
 <!DOCTYPE html>
-<!-- saved from url=(0022)https://www.baidu.com/ -->
-<html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"
+		/>
+		<meta http-equiv="Expires" content="0" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Cache-control" content="no-cache" />
+		<meta http-equiv="Cache" content="no-cache" />
+		<link rel="icon" href="favicon.ico" />
+		<title>【测试】移动打卡</title>
+	</head>
+	<body>
+		<div id="test">【测试】</div>
+		<script src="https://webapi.amap.com/maps?v=1.4.15&key=5191e0f55eb100ac3c8ac2d9de827b25&plugin=AMap.Geolocation,AMap.Geocoder"></script>
+		<script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
 
-<head>
+		<script>
+			window.onload = function() {
+				var vConsole = new VConsole()
+				var AMap = window.AMap
 
-</head>
+				var gaoGeolocation = new AMap.Geolocation({
+					// 是否使用高精度定位，默认：true
+					enableHighAccuracy: true,
+					// 设置定位超时时间，默认：无穷大
+					timeout: 1000 * 6,
+				})
 
-<body>
-<a href="https://applink.feishu.cn/client/chat/open?openId=ou_dd414532170078a10a866ba44483a676">123 </a>
-</body>
+				gaoGeolocation.getCurrentPosition()
 
+				AMap.event.addListener(gaoGeolocation, 'complete', onComplete)
+				AMap.event.addListener(gaoGeolocation, 'error', onError)
+				function onComplete(result) {
+					console.log('result', result)
+				}
+
+				function onError(errorMsg) {
+					console.log('errorMsg', errorMsg)
+				}
+			}
+		</script>
+	</body>
 </html>
