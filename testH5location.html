@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"
+    />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="Cache" content="no-cache" />
+    <link rel="icon" href="favicon.ico" />
+    <title>【测试】定位</title>
+  </head>
+  <body>
+    <div id="test">【测试】</div>
+    <script
+      type="text/javascript"
+      src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"
+    ></script>
+    <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
+
+    <script>
+      window.onload = function () {
+        var vConsole = new VConsole();
+
+        getLocationByFeishu();
+        setInterval(function () {
+          getLocationByFeishu();
+        }, 1000 * 8);
+      };
+
+      function getLocationByFeishu() {
+        window.h5sdk &&
+        window.h5sdk.device.geolocation.get({
+          useCache: true,
+          onSuccess: locationData => {
+            console.log('定位信息', locationData);
+            // this.locationData = locationData;
+            if (locationData.errorCode) {
+              window.h5sdk.device.notification.toast({
+                text: '定位获取失败，您需要开启定位'
+              });
+              rej();
+              window.h5sdk.device.notification.hidePreloader();
+              return;
+            }
+            window.h5sdk.device.notification.hidePreloader();
+            // locationData.latitude = '40.040232';
+            // locationData.longitude = '116.410789';
+            res(locationData);
+          },
+          onFail: errorMsg => {
+            window.h5sdk.device.notification.toast({
+              text: '定位获取失败，您需要开启定位'
+            });
+            console.log((errorMsg && errorMsg.message) || 'error');
+            rej(errorMsg);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
