@@ -23,6 +23,9 @@
     <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
 
     <script>
+      window.onload = function () {
+        var vConsole = new VConsole();
+      };
 
       function getLocationByFeishu() {
         window.h5sdk.ready(function() {
