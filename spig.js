@@ -1,35 +1,35 @@
-jQuery(document).ready(function($) {
-    $("#spig").mousedown(function(e) {
+jQuery(document).ready(function ($) {
+    $("#spig").mousedown(function (e) {
         if (e.which == 3) {
             showMessage("秘密通道：<br /> <a href=\"\" title=\"首页\">首页</a>    <a href=\"\" title=\"订阅\">订阅</a> <a href=\"\" title=\"留言\">留言</a>", 10000);
         }
     });
     $("#spig").bind("contextmenu",
-    function(e) {
-        return false;
-    });
+        function (e) {
+            return false;
+        });
 });
 
-jQuery(document).ready(function($) {
-    $("#message").hover(function() {
+jQuery(document).ready(function ($) {
+    $("#message").hover(function () {
         $("#message").fadeTo("100", 1);
     });
 });
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     //$(".mumu").jrumble({rangeX: 2,rangeY: 2,rangeRot: 1});
-    $(".mumu").mouseover(function() {
+    $(".mumu").mouseover(function () {
         $(".mumu").fadeTo("300", 0.3);
-        msgs = ["讲道理，现在三次元都不流行舔狗了，为什么还要放二刺螈来伤害肥宅", "没这卡你的弹珠就少一种颜色", "这个必抽，不抽我不知道你在玩什么", "为什么出货还要晒的，不是很懂，这游戏不是随便抽两发就有了吗","原来是这样啊","残疾人呢，怎么配在芳文说话","我看泥潭又有人在婊春黑刀，讲道理，这期的春黑刀应该表扬才对","主要纯爱的重点在剧情，18x部分就好像附赠的","主要纯爱的重点在剧情，18x部分就好像附赠的","没这卡，你就少了一整块游戏体验，就好像别人比你多了个天赋树","停一下，你怎么这么自信的，说自己是二等残废，少一张才是二等残废，你数数你几张卡？像不像个植物人"];
+        msgs = ["讲道理，现在三次元都不流行舔狗了，为什么还要放二刺螈来伤害肥宅", "没这卡你的弹珠就少一种颜色", "这个必抽，不抽我不知道你在玩什么", "为什么出货还要晒的，不是很懂，这游戏不是随便抽两发就有了吗", "原来是这样啊", "残疾人呢，怎么配在芳文说话", "我看泥潭又有人在婊春黑刀，讲道理，这期的春黑刀应该表扬才对", "主要纯爱的重点在剧情，18x部分就好像附赠的", "没这卡，你就少了一整块游戏体验，就好像别人比你多了个天赋树", "停一下，你怎么这么自信的，说自己是二等残废，少一张才是二等残废，你数数你几张卡？像不像个植物人"];
         var i = Math.floor(Math.random() * msgs.length);
         showMessage(msgs[i]);
     });
-    $(".mumu").mouseout(function() {
+    $(".mumu").mouseout(function () {
         $(".mumu").fadeTo("300", 1)
     });
 });
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     if (isindex) { //如果是主页
         var now = (new Date()).getHours();
         if (now > 0 && now <= 6) {
@@ -50,25 +50,25 @@ jQuery(document).ready(function($) {
         top: $(".spig").offset().top + 300,
         left: document.body.offsetWidth - 160
     },
-    {
-        queue: false,
-        duration: 1000
-    });
+        {
+            queue: false,
+            duration: 1000
+        });
 });
 
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
-    window.setInterval(function() {
+    window.setInterval(function () {
         msgs = [$("#hitokoto").text(), weather.c[0], weather.c[2], weather.c[5], weather.c[7]];
         var i = Math.floor(Math.random() * msgs.length);
         showMessage(msgs[i], 10000);
     },
-    35000);
+        35000);
 });
 
-jQuery(document).ready(function($) {
-    window.setInterval(function() {
+jQuery(document).ready(function ($) {
+    window.setInterval(function () {
         msgs = [$("#hitokoto").text()];
         //if(weather.state)msgs.concat(weather.c);
         var i = Math.floor(Math.random() * msgs.length);
@@ -79,42 +79,42 @@ jQuery(document).ready(function($) {
             left: document.body.offsetWidth / 2 * (1 + s[i1]),
             top: document.body.offsetheight / 2 * (1 + s[i1])
         },
-        {
-            duration: 2000,
-            complete: showMessage(msgs[i])
-        });
+            {
+                duration: 2000,
+                complete: showMessage(msgs[i])
+            });
     },
-    45000);
+        45000);
 });
 
 
 var spig_top = 50;
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     var f = $(".spig").offset().top;
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         $(".spig").animate({
             top: $(window).scrollTop() + f + 300
         },
-        {
-            queue: false,
-            duration: 1000
-        });
+            {
+                queue: false,
+                duration: 1000
+            });
     });
 });
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     var stat_click = 0;
-    $(".mumu").click(function() {
+    $(".mumu").click(function () {
         if (!ismove) {
             stat_click++;
             if (stat_click <= 4) {
                 msgs = [weather.c[0], weather.c[2], weather.c[5], weather.c[7]];
             } else if (stat_click > 4) {
-                msgs = ["你有完没完呀？", "你已经摸我" + stat_click + "次了", "非礼呀！救命！OH，My ladygaga"];
+                msgs = ["讲道理，现在三次元都不流行舔狗了，为什么还要放二刺螈来伤害肥宅", "没这卡你的弹珠就少一种颜色", "这个必抽，不抽我不知道你在玩什么", "为什么出货还要晒的，不是很懂，这游戏不是随便抽两发就有了吗", "没这卡，你就少了一整块游戏体验，就好像别人比你多了个天赋树", "停一下，你怎么这么自信的，说自己是二等残废，少一张才是二等残废，你数数你几张卡？像不像个植物人"];
                 var i = Math.floor(Math.random() * msgs.length);
                 //showMessage(msgs[i]);
             } else {
-                msgs = ["筋斗云！~我飞！", "我跑呀跑呀跑！~~", "别摸我，大男人，有什么好摸的！", "惹不起你，我还躲不起你么？", "不要摸我了，我会告诉老婆来打你的！", "干嘛动我呀！小心我咬你！"];
+                msgs = ["没这卡你的弹珠就少一种颜色", "这个必抽，不抽我不知道你在玩什么", "为什么出货还要晒的，不是很懂，这游戏不是随便抽两发就有了吗", "原来是这样啊", "残疾人呢，怎么配在芳文说话", "我看泥潭又有人在婊春黑刀，讲道理，这期的春黑刀应该表扬才对", "主要纯爱的重点在剧情，18x部分就好像附赠的", "没这卡，你就少了一整块游戏体验，就好像别人比你多了个天赋树", "停一下，你怎么这么自信的，说自己是二等残废，少一张才是二等残废，你数数你几张卡？像不像个植物人"];
                 var i = Math.floor(Math.random() * msgs.length);
                 //showMessage(msgs[i]);
             }
@@ -125,10 +125,10 @@ jQuery(document).ready(function($) {
                 left: document.body.offsetWidth / 2 * (1 + s[i1]),
                 top: document.body.offsetheight / 2 * (1 + s[i1])
             },
-            {
-                duration: 500,
-                complete: showMessage(msgs[i])
-            });
+                {
+                    duration: 500,
+                    complete: showMessage(msgs[i])
+                });
         } else {
             ismove = false;
         }
@@ -148,13 +148,13 @@ function showMessage(a, b) {
 var _move = false;
 var ismove = false; //移动标记
 var _x, _y; //鼠标离控件左上角的相对位置
-jQuery(document).ready(function($) {
-    $("#spig").mousedown(function(e) {
+jQuery(document).ready(function ($) {
+    $("#spig").mousedown(function (e) {
         _move = true;
         _x = e.pageX - parseInt($("#spig").css("left"));
         _y = e.pageY - parseInt($("#spig").css("top"));
     });
-    $(document).mousemove(function(e) {
+    $(document).mousemove(function (e) {
         if (_move) {
             var x = e.pageX - _x;
             var y = e.pageY - _y;
@@ -168,7 +168,7 @@ jQuery(document).ready(function($) {
                 ismove = true;
             }
         }
-    }).mouseup(function() {
+    }).mouseup(function () {
         _move = false;
     });
 });
