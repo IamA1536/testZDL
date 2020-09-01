@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
     //$(".mumu").jrumble({rangeX: 2,rangeY: 2,rangeRot: 1});
     $(".mumu").mouseover(function() {
         $(".mumu").fadeTo("300", 0.3);
-        msgs = ["我隐身了，你看不到我", "我会隐身哦！嘿嘿！", "别动手动脚的，把手拿开！", "把手拿开我才出来！"];
+        msgs = ["讲道理，现在三次元都不流行舔狗了，为什么还要放二刺螈来伤害肥宅", "没这卡你的弹珠就少一种颜色", "这个必抽，不抽我不知道你在玩什么", "为什么出货还要晒的，不是很懂，这游戏不是随便抽两发就有了吗","原来是这样啊","残疾人呢，怎么配在芳文说话","我看泥潭又有人在婊春黑刀，讲道理，这期的春黑刀应该表扬才对","主要纯爱的重点在剧情，18x部分就好像附赠的","主要纯爱的重点在剧情，18x部分就好像附赠的","没这卡，你就少了一整块游戏体验，就好像别人比你多了个天赋树","停一下，你怎么这么自信的，说自己是二等残废，少一张才是二等残废，你数数你几张卡？像不像个植物人"];
         var i = Math.floor(Math.random() * msgs.length);
         showMessage(msgs[i]);
     });
@@ -33,18 +33,18 @@ jQuery(document).ready(function($) {
     if (isindex) { //如果是主页
         var now = (new Date()).getHours();
         if (now > 0 && now <= 6) {
-            showMessage(visitor + ' 你是夜猫子呀？还不睡觉，明天起的来么你？', 6000);
+            showMessage(visitor + ' 出刀了吗，报一下伤害', 6000);
         } else if (now > 6 && now <= 11) {
-            showMessage(visitor + ' 早上好，早起的鸟儿有虫吃噢！早起的虫儿被鸟吃，你是鸟儿还是虫儿？嘻嘻！', 6000);
+            showMessage(visitor + '你回头练练 ，明天多打点', 6000);
         } else if (now > 11 && now <= 14) {
-            showMessage(visitor + ' 中午了，吃饭了么？不要饿着了，饿死了谁来挺我呀！', 6000);
+            showMessage(visitor + '伤害太低了，不能高点吗', 6000);
         } else if (now > 14 && now <= 18) {
-            showMessage(visitor + ' 中午的时光真难熬！还好有你在！', 6000);
+            showMessage(visitor + ' 轴你回头练练 ，明天多打点', 6000);
         } else {
-            showMessage(visitor + ' 快来逗我玩吧！', 6000);
+            showMessage(visitor + '怎么那么多11点以后才出刀的', 6000);
         }
     } else {
-        showMessage('欢迎' + visitor + '来到《若是凉夜已成梦》阅读 ' + title + ' ', 6000);
+        showMessage('记录犯罪过程', 6000);
     }
     $(".spig").animate({
         top: $(".spig").offset().top + 300,
@@ -56,62 +56,6 @@ jQuery(document).ready(function($) {
     });
 });
 
-jQuery(document).ready(function($) {
-    $('h2 a').click(function() { //标题被点击时
-        showMessage('正在用吃奶的劲加载《<span style="color:#0099cc;">' + $(this).text() + '</span>》请稍候');
-    });
-    $('h2 a').mouseover(function() {
-        showMessage('要看看《<span style="color:#0099cc;">' + $(this).text() + '</span>》这篇文章么？');
-    });
-    $('#prev-page').mouseover(function() {
-        showMessage('要翻到上一页吗?');
-    });
-    $('#next-page').mouseover(function() {
-        showMessage('要翻到下一页吗?');
-    });
-    $('#index-links li a').mouseover(function() {
-        showMessage('去 <span style="color:#0099cc;">' + $(this).text() + '</span> 逛逛');
-    });
-    $('.comments').mouseover(function() {
-        showMessage('<span style="color:#0099cc;">' + visitor + '</span> 向评论栏出发吧！');
-    });
-    $('#submit').mouseover(function() {
-        showMessage('确认提交了么？');
-    });
-    $('#s').focus(function() {
-        showMessage('输入你想搜索的关键词再按Enter(回车)键就可以搜索啦!');
-    });
-    $('#go-prev').mouseover(function() {
-        showMessage('点它可以后退哦！');
-    });
-    $('#go-next').mouseover(function() {
-        showMessage('点它可以前进哦！');
-    });
-    $('#refresh').mouseover(function() {
-        showMessage('点它可以重新载入此页哦！');
-    });
-    $('#go-home').mouseover(function() {
-        showMessage('点它就可以回到首页啦！');
-    });
-    $('#addfav').mouseover(function() {
-        showMessage('点它可以把此页加入书签哦！');
-    });
-    $('#nav-two a').mouseover(function() {
-        showMessage('嘘，从这里可以进入控制面板的哦！');
-    });
-    $('.post-category a').mouseover(function() {
-        showMessage('点击查看此分类下得所有文章');
-    });
-    $('.post-heat a').mouseover(function() {
-        showMessage('点它可以直接跳到评论列表处.');
-    });
-    $('#tho-shareto span a').mouseover(function() {
-        showMessage('你知道吗?点它可以分享本文到' + $(this).attr('title'));
-    });
-    $('#switch-to-wap').mouseover(function() {
-        showMessage('点击可以切换到手机版博客版面');
-    });
-});
 
 jQuery(document).ready(function($) {
 
@@ -143,53 +87,6 @@ jQuery(document).ready(function($) {
     45000);
 });
 
-jQuery(document).ready(function($) {
-    $("#author").click(function() {
-        showMessage("留下你的尊姓大名！");
-        $(".spig").animate({
-            top: $("#author").offset().top - 70,
-            left: $("#author").offset().left - 170
-        },
-        {
-            queue: false,
-            duration: 1000
-        });
-    });
-    $("#email").click(function() {
-        showMessage("留下你的邮箱，不然就是无头像人士了！");
-        $(".spig").animate({
-            top: $("#email").offset().top - 70,
-            left: $("#email").offset().left - 170
-        },
-        {
-            queue: false,
-            duration: 1000
-        });
-    });
-    $("#url").click(function() {
-
-        showMessage("快快告诉我你的家在哪里，好让我去参观参观！");
-        $(".spig").animate({
-            top: $("#url").offset().top - 70,
-            left: $("#url").offset().left - 170
-        },
-        {
-            queue: false,
-            duration: 1000
-        });
-    });
-    $("#comment").click(function() {
-        showMessage("认真填写哦！不然会被认作垃圾评论的！我的乖乖~");
-        $(".spig").animate({
-            top: $("#comment").offset().top - 70,
-            left: $("#comment").offset().left - 170
-        },
-        {
-            queue: false,
-            duration: 1000
-        });
-    });
-});
 
 var spig_top = 50;
 jQuery(document).ready(function($) {
@@ -294,37 +191,3 @@ function setCookie(name, value, days) {
     } else var expires = "";
     document.cookie = name + "=" + value + expires + "; path=/"
 }
-var weather = Array();
-weather.s = false;
-jQuery(document).ready(function($) {
-    var date = new Date();
-    weather.d = "" + date.getFullYear() + date.getMonth() + date.getDay();
-    weather.ck = getCookie("weather");
-    if (weather.ck == null || weather.d != getCookie("wea_tstamp")) {
-        $.ajax({
-            dataType: "jsonp",
-            success: function(data) {
-                if (data.success != 1) {
-                    return;
-                }
-                weather.s = true;
-                weather.c = Array();
-                weather.c[0] = "今天是" + data.result[0].days + "，" + data.result[0].week;
-                weather.c[1] = data.result[0].citynm + "今天" + data.result[0].temp_high + "°C到" + data.result[0].temp_low + "°C";
-                weather.c[2] = data.result[0].citynm + "今天" + data.result[0].weather;
-                weather.c[3] = data.result[0].citynm + "今天" + data.result[0].winp + "，" + data.result[0].wind;
-                weather.c[4] = data.result[0].citynm + "明天" + data.result[1].temp_high + "°C到" + data.result[1].temp_low + "°C";
-                weather.c[5] = data.result[0].citynm + "明天" + data.result[1].weather;
-                weather.c[6] = data.result[0].citynm + "后天" + data.result[2].temp_high + "°C到" + data.result[2].temp_low + "°C";
-                weather.c[7] = data.result[0].citynm + "后天" + data.result[2].weather;
-                setCookie("wea_tstamp", weather.d, 1);
-                setCookie("weather", encodeURI(weather.c.join(",")), 1);
-            },
-            type: "GET",
-            url: "https://myhloliapi.sinaapp.com/weather/?callback=?"
-        });
-    } else {
-        weather.s = true;
-        weather.c = decodeURI(weather.ck).split(",");
-    }
-});
