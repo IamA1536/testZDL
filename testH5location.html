@@ -1,4 +1,32 @@
-        window.h5sdk &&
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"
+    />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="Cache" content="no-cache" />
+    <link rel="icon" href="favicon.ico" />
+    <title>【测试】定位</title>
+  </head>
+  <body>
+    <button id="test" onclick="getLocationByFeishu()">【测试】</div>
+    <script
+      type="text/javascript"
+      src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"
+    ></script>
+    <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
+
+    <script>
+
+      function getLocationByFeishu() {
+        window.h5sdk.ready(function() {
+            window.h5sdk &&
         window.h5sdk.device.geolocation.get({
           useCache: true,
           onSuccess: locationData => {
@@ -26,3 +54,8 @@
           }
         });
       }
+})
+
+    </script>
+  </body>
+</html>
