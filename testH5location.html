@@ -28,8 +28,10 @@
 
       };
       function getLocationByFeishu() {
+        
         console.log('定位');
         window.h5sdk.ready(function() {
+          
           console.log('定位进入');
             window.h5sdk &&
         window.h5sdk.device.geolocation.get({
