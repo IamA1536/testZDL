@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"
-    />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <meta http-equiv="Expires" content="0" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Cache-control" content="no-cache" />
     <meta http-equiv="Cache" content="no-cache" />
     <link rel="icon" href="favicon.ico" />
     <title>【测试】定位</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="test">【测试】</div>
-    <script
-      type="text/javascript"
-      src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"
-    ></script>
+    <script type="text/javascript" src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"></script>
     <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
 
     <script>
-      window.onload = function () {
-        var vConsole = new VConsole();
-
-        getLocationByFeishu();
-        setInterval(function () {
-          getLocationByFeishu();
-        }, 1000 * 8);
-      };
-
-      function getLocationByFeishu() {
-        window.tt.getLocation({
-          type: 'gcj02',
-          success(result) {
-            console.log(result);
-          },
-          fail(error) {
-            console.log(error);
-          },
+        window.h5sdk.config({
+            appId: 'cli_9e1c0cbc86f1900d',
+            timestamp: 1603263583077,
+            nonceStr: 'imatest',
+            signature: '4e9ffd5c0a98d2e02b9edd5105eb26f3c077edb4',
+            jsApiList: ['tt.getLocation']
         });
-      }
+
+        window.h5sdk.error(error => console.log(error)) // config校验失败会触发error回调
+        window.onload = function () {
+            var vConsole = new VConsole();
+
+            getLocationByFeishu();
+            setInterval(function () {
+                getLocationByFeishu();
+            }, 1000 * 8);
+        };
+
+        function getLocationByFeishu() {
+            window.h5sdk.ready(() => {
+
+                window.tt.getLocation({
+                    type: 'gcj02',
+                    success(result) {
+                        console.log(result);
+                    },
+                    fail(error) {
+                        console.log(error);
+                    },
+                });
+            })
+
+        }
     </script>
-  </body>
+</body>
+
 </html>
