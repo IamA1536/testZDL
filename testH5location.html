@@ -75,8 +75,8 @@ var string = "data:image/png;base64,iVBORw0KGgoAAA"+
           console.log('定位进入');
           window.h5sdk.biz.navigation.setMenu({
             items: [
-              { id: "1", text: 'one' },
-
+                            { id: "1", text: 'one' },
+              { id: "2", text: "second",imageBase64: string}
 
             ],
             onSuccess: function (result) {
