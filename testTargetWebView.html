@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tab</title>
+</head>
+<style>
+  .container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .container a {
+    padding: 8px;
+    margin: 6px;
+    border: 1px solid blue;
+    text-decoration: none;
+  }
+
+  .add-btn {
+    margin-top: 20px;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div id='tabs'>
+      <a target='_self' href="https://www.baidu.com">百度</a>
+      <a target='_blank' href="https://modao.cc">墨刀</a>
+    </div>
+    <div class='add-btn'>
+      <button onclick="addTag()">添加标签1</button>
+      <button onclick="navigateNew()">跳转</button>
+    </div>
+  </div>
+  <script>
+
+    // document.addEventListener('click', (e) => {
+    //   var node = e.target
+    //   while ('BODY' !== node.nodeName) {
+    //     if ('A' === node.nodeName && '_blank' === node.target) {
+    //       e.preventDefault()
+    //       window.open(node.href, '_self')
+    //       break
+    //     }
+    //     node = node.parentNode
+    //   }
+    // })
+
+
+    addTag = () => {
+      var tab = document.createElement('a')
+      tab.target = '_blank'
+      tab.href = 'http://www.google.com'
+      tab.innerText = '谷歌'
+
+      var tabs = document.getElementById('tabs')
+      tabs.appendChild(tab)
+    }
+
+    navigateNew = () => {
+      // location.href = "https://www.tmall.com/"
+      window.open("https://www.tmall.com/", '_self')
+    }
+  </script>
+</body>
+
+</html>
