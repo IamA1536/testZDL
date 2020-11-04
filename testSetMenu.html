@@ -14,8 +14,9 @@
 </head>
 
 <body>
-  <button id="test" onclick="setMenuText()">【测试导航文本】</div>
-    <button id="test2" onclick="setMenuImg()">【测试导航图片】</div>
+  <button id="test" onclick="setMenuText()">【测试左导航文本】</div>
+    <button id="test2" onclick="setMenuImg()">【测试左导航图片】</div>
+  <button id="test2" onclick="setMenuLeftText()">【测试右导航文本】</div>
       <script type="text/javascript" src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"></script>
       <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
 
@@ -92,6 +93,23 @@
                 { id: "1", text: "one"}
 
               ],
+              onSuccess: function (result) {
+                console.log(result);
+              }
+            });
+          })
+        }
+        
+        function setMenuLeftText() {
+
+          console.log('自定义右侧导航');
+          window.h5sdk.ready(function () {
+
+            console.log('定位进入');
+            window.h5sdk.biz.navigation.setLeft({
+             control: true,  
+    text: '    ',  
+    isShowIcon: false,
               onSuccess: function (result) {
                 console.log(result);
               }
