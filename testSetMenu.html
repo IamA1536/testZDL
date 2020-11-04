@@ -116,31 +116,22 @@
     function clearMenu() {
       console.log('自定义左侧导航');
       window.h5sdk.ready(function () {
-        window.h5sdk.biz.navigation.setLeft({
-          control: true,
-          text: '',
-          isShowIcon: false,
-          onSuccess: function (result) {
+        // window.h5sdk.biz.navigation.setLeft({
+        //   control: true,
+        //   text: '',
+        //   isShowIcon: false,
+        //   onSuccess: function (result) {
 
-            console.log(result);
-          }
-        });
+        //     console.log(result);
+        //   }
+        // });
 
 
-        window.h5sdk.biz.navigation.setMenu({
-          items: [
-            { id: "1", text: "" }
+        window.h5sdk.biz.navigation.setLeft({ show: false });
+        window.h5sdk.biz.navigation.setRight({ show: false });
 
-          ],
-          onSuccess: function (result) {
-            console.log(result);
-          }
-
-        })
-      })
-
-    }
-
+    })
+  }
   </script>
 </body>
 
