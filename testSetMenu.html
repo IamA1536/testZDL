@@ -116,18 +116,18 @@
     function clearMenu() {
       console.log('清空导航');
       window.h5sdk.ready(function () {
-        // window.h5sdk.biz.navigation.setLeft({
-        //   control: true,
-        //   text: '',
-        //   isShowIcon: false,
-        //   onSuccess: function (result) {
+                console.log('清空左导航');
+        window.h5sdk.biz.navigation.setLeft({
+          control: true,
+          text: '',
+          isShowIcon: false,
+          onSuccess: function (result) {
 
-        //     console.log(result);
-        //   }
-        // });
+            console.log(result);
+          }
+        });
 
-        console.log('清空左导航');
-        window.h5sdk.biz.navigation.setLeft({ show: false });
+
         console.log('清空右导航');
         window.h5sdk.biz.navigation.setRight({ show: false });
 
