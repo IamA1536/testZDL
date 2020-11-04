@@ -23,7 +23,7 @@
   <script>
     window.onload = function () {
       var vConsole = new VConsole();
-
+      clearMenu()
     };
     function setMenuImg() {
 
@@ -104,13 +104,40 @@
       window.h5sdk.ready(function () {
         window.h5sdk.biz.navigation.setLeft({
           control: true,
-          text: '    ',
+          text: 'test',
           isShowIcon: false,
           onSuccess: function (result) {
             console.log(result);
           }
         });
       })
+    }
+
+    function clearMenu() {
+      console.log('自定义左侧导航');
+      window.h5sdk.ready(function () {
+        window.h5sdk.biz.navigation.setLeft({
+          control: false,
+          text: '     ',
+          isShowIcon: false,
+          onSuccess: function (result) {
+            console.log(result);
+          }
+        });
+
+
+        window.h5sdk.biz.navigation.setMenu({
+          items: [
+            { id: "1", text: "     " }
+
+          ],
+          onSuccess: function (result) {
+            console.log(result);
+          }
+
+        })
+      })
+
     }
 
   </script>
