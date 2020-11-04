@@ -114,7 +114,7 @@
     }
 
     function clearMenu() {
-      console.log('自定义左侧导航');
+      console.log('清空导航');
       window.h5sdk.ready(function () {
         // window.h5sdk.biz.navigation.setLeft({
         //   control: true,
@@ -126,8 +126,9 @@
         //   }
         // });
 
-
+        console.log('清空左导航');
         window.h5sdk.biz.navigation.setLeft({ show: false });
+        console.log('清空右导航');
         window.h5sdk.biz.navigation.setRight({ show: false });
 
     })
