@@ -117,10 +117,11 @@
       console.log('自定义左侧导航');
       window.h5sdk.ready(function () {
         window.h5sdk.biz.navigation.setLeft({
-          control: false,
-          text: '     ',
+          control: true,
+          text: '',
           isShowIcon: false,
           onSuccess: function (result) {
+
             console.log(result);
           }
         });
@@ -128,7 +129,7 @@
 
         window.h5sdk.biz.navigation.setMenu({
           items: [
-            { id: "1", text: "     " }
+            { id: "1", text: "" }
 
           ],
           onSuccess: function (result) {
