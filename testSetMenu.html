@@ -14,9 +14,9 @@
 </head>
 
 <body>
-  <button id="test" onclick="setMenuText()">【测试左导航文本】</button>
-  <button id="test2" onclick="setMenuImg()">【测试左导航图片】</button>
-  <button id="test2" onclick="setMenuLeftText()">【测试右导航文本】</button>
+  <button id="test" onclick="setMenuText()">【测试右导航文本】</button>
+  <button id="test2" onclick="setMenuImg()">【测试右导航图片】</button>
+  <button id="test2" onclick="setMenuLeftText()">【测试左导航文本】</button>
   <script type="text/javascript" src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"></script>
   <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
 
@@ -27,7 +27,7 @@
     };
     function setMenuImg() {
 
-      console.log('测试左导航图片');
+      console.log('测试右导航图片');
       window.h5sdk.ready(function () {
         var string = "iVBORw0KGgoAAA" +
           "ANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAAAXN" +
@@ -84,7 +84,7 @@
 
     function setMenuText() {
 
-      console.log('测试左导航文本');
+      console.log('测试右导航文本');
       window.h5sdk.ready(function () {
 
         window.h5sdk.biz.navigation.setMenu({
@@ -100,7 +100,7 @@
     }
 
     function setMenuLeftText() {
-      console.log('测试右导航文本');
+      console.log('测试左导航文本');
       window.h5sdk.ready(function () {
         window.h5sdk.biz.navigation.setLeft({
           control: true,
