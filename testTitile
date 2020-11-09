@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>商业数据看板</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <button onclick="document.title = Date.now()">set title</button>
+  </body>
+</html>
