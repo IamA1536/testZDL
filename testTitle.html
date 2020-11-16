@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>商业数据看板</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <button onclick="document.title = Date.now()">set title</button>
-  </body>
+
+<head>
+  <title>商业数据看板</title>
+</head>
+<script>
+
+
+  addlang = () => {
+
+    document.write('navigator.language:' + navigator.language);
+    document.write('<br>navigator.userLanguage:' + navigator.userLanguage);
+    document.write('<br>navigator.browserLanguage:' + navigator.browserLanguage);
+    document.write('<br>navigator.systemLanguage:' + navigator.systemLanguage);
+
+  }
+
+</script>
+
+<body>
+  <div id="app"></div>
+  <button onclick="document.title = Date.now()">set title</button>
+  <button onclick="addlang()">set lang</button>
+</body>
+
 </html>
