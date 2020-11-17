@@ -110,6 +110,10 @@
           onSuccess: function (result) {
             console.log('测试左导航成功回调');
             console.log(result);
+          },
+          onFail: function(err) {
+            console.log('测试左导航失败回调');
+            console.log(err);
           }
         });
       })
