@@ -25,7 +25,9 @@
 
 
         function review() {
-            $.post("http://122.112.163.203/getConfig", {app_id: "cli_9e929591d0b55101",app_secret:"96AVHS8SJrKMPFWOp6DXueWNECL6Msj5",url:"https://iama1536.github.io/testZDL/testlocation.html"}, function(result){
+            send_obj =  {app_id: "cli_9e929591d0b55101",app_secret:"96AVHS8SJrKMPFWOp6DXueWNECL6Msj5",url:"https://iama1536.github.io/testZDL/testlocation.html"}
+            send_obj = JSON.stringfy(send_obj);
+            $.post("http://122.112.163.203/getConfig", send_obj, function(result){
                 console.log(result)
                 dataJson = result.res
                 appId = dataJson.appId
