@@ -25,12 +25,13 @@
 
 
         function review() {
-            $.post("http://122.112.163.203", {app_id: "cli_9e929591d0b55101",app_secret:"96AVHS8SJrKMPFWOp6DXueWNECL6Msj5",url:"https://iama1536.github.io/testZDL/testlocation.html"}, function(dataJson){
-
+            $.post("http://122.112.163.203/getConfig", {app_id: "cli_9e929591d0b55101",app_secret:"96AVHS8SJrKMPFWOp6DXueWNECL6Msj5",url:"https://iama1536.github.io/testZDL/testlocation.html"}, function(result){
+                console.log(result)
+                dataJson = result.res
                 appId = dataJson.appId
-                    timestamp = dataJson.timestamp
-                    nonceStr = dataJson.nonceStr
-                    signature = dataJson.signature
+                timestamp = dataJson.timestamp
+                nonceStr = dataJson.nonceStr
+                signature = dataJson.signature
                 window.h5sdk.config({
                     appId: appId,
                     timestamp: timestamp,
@@ -55,7 +56,7 @@
                 console.log(nonceStr)
                 console.log(signature)
             });
-           
+
 
         }
 
