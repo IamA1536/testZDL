@@ -1,59 +1,95 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html>
 
 <head>
-    <meta charset="utf-8" />
+    <title>index</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-    <meta http-equiv="Expires" content="0" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Cache-control" content="no-cache" />
-    <meta http-equiv="Cache" content="no-cache" />
-    <link rel="icon" href="favicon.ico" />
-    <title>【测试】定位</title>
-</head>
-
-<body>
-    <div id="test">【测试】</div>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script type="text/javascript" src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"></script>
-    <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
-
+    <script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
     <script>
-        window.h5sdk.config({
-            appId: 'cli_9fe1dee7e5f3d00d',
-            timestamp: 1603279228078,
-            nonceStr: 'imatest',
-            signature: '37151b0d52c8e82bdba306c363c0fb9a9ed10e87',
-            jsApiList: ['tt.getLocation']
+        // 初始化
+        var vConsole = new VConsole();
+        console.log('Hello world');
+
+    </script>
+    <script type="text/javascript">
+        var appId
+        var timestamp
+        var nonceStr
+        var signature
+        $(document).ready(function () {
+            review()
         });
 
-        window.h5sdk.error(error => console.log(error)) // config校验失败会触发error回调
-        window.onload = function () {
-            var vConsole = new VConsole();
 
-            getLocationByFeishu();
-            setInterval(function () {
-                getLocationByFeishu();
-            }, 1000 * 8);
-        };
+        function review() {
+            $.post("http://122.112.163.203", {app_id: "cli_9e929591d0b55101",app_secret:"96AVHS8SJrKMPFWOp6DXueWNECL6Msj5",url:"https://iama1536.github.io/testZDL/testlocation.html"}, function(dataJson){
 
-        function getLocationByFeishu() {
-            window.h5sdk.ready(() => {
+                appId = dataJson.appId
+                    timestamp = dataJson.timestamp
+                    nonceStr = dataJson.nonceStr
+                    signature = dataJson.signature
+                window.h5sdk.config({
+                    appId: appId,
+                    timestamp: timestamp,
+                    nonceStr: nonceStr,
+                    signature: signature,
+                    jsApiList: []
 
-                window.tt.getLocation({
-                    type: 'gcj02',
-                    success(result) {
-                        console.log(result);
-                    },
-                    fail(error) {
-                        console.log(error);
-                    },
                 });
+                    $("p#appId").text(dataJson.appId);
+                    $("p#timestamp").text(dataJson.timestamp);
+                    $("p#nonceStr").text(dataJson.nonceStr);
+                    $("p#signature").text(dataJson.signature);
+                window.h5sdk.error(error => {
+				console.log(error)
+				$("p#errorCode").text(error.errorCode);
+				$("p#errorMessage").text(error.errorMessage);
+
+				}) // config校验失败会触发error回调
+
+                console.log(appId)
+                console.log(timestamp)
+                console.log(nonceStr)
+                console.log(signature)
+            });
+           
+
+        }
+
+        function clickBt() {
+            window.h5sdk.ready(() => {
+                setTimeout(() => {
+                    tt.getLocation({
+                        type: 'gcj02',
+                        success(result) {
+                            console.log(result);
+                        },
+                        fail(error) {
+                            console.log(error);
+                        },
+                    });
+                }, 1000);
             })
 
         }
+
+
     </script>
+</head>
+
+<body>
+    <div id="base" class="">
+        <button id="doc" onclick="clickBt()" type="button">定位</button>
+        <p id="appId"></p>
+        <p id="timestamp"></p>
+        <p id="nonceStr"></p>
+        <p id="signature"></p>
+		<p id="errorCode"> </p>
+		<p id="errorMessage"> </p>
+    </div>
 </body>
 
 </html>
