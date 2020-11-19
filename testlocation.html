@@ -5,8 +5,7 @@
     <title>index</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <script type="text/javascript" src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"></script>
+    <script type="text/javascript" src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.7.js"></script>
     <script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>
     <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
     <script>
@@ -26,50 +25,61 @@
 
 
         function review() {
-            send_obj =  {app_id: "cli_9e929591d0b55101",app_secret:"96AVHS8SJrKMPFWOp6DXueWNECL6Msj5",url:"https://iama1536.github.io/testZDL/testlocation.html"}
+            send_obj = { app_id: "cli_9e929591d0b55101", app_secret: "96AVHS8SJrKMPFWOp6DXueWNECL6Msj5", url: "http://10.91.42.9/index" }
             send_obj = JSON.stringify(send_obj);
-		console.log(send_obj);
-            $.post("https://qcqes5.fn.thelarkcloud.com/H5config", send_obj, function(result){
-                console.log(result)
-                dataJson = result.res
-                appId = dataJson.appId
-                timestamp = dataJson.timestamp
-                nonceStr = dataJson.nonceStr
-                signature = dataJson.signature
-                window.h5sdk.config({
-                    appId: appId,
-                    timestamp: timestamp,
-                    nonceStr: nonceStr,
-                    signature: signature,
-                    jsApiList: []
+            $.ajax({
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                },
+                type: "POST",
+                url: "https://qcqes5.fn.thelarkcloud.com/H5config",
+                data: send_obj,
+                success: function (result) {
+                    console.log(result)
+                    dataJson = result.res
+                    appId = dataJson.appId
+                    timestamp = dataJson.timestamp
+                    nonceStr = dataJson.nonceStr
+                    signature = dataJson.signature
+                    window.h5sdk.config({
+                        appId: appId,
+                        timestamp: timestamp,
+                        nonceStr: nonceStr,
+                        signature: signature,
+                        jsApiList: []
 
-                });
+                    });
                     $("p#appId").text(dataJson.appId);
                     $("p#timestamp").text(dataJson.timestamp);
                     $("p#nonceStr").text(dataJson.nonceStr);
                     $("p#signature").text(dataJson.signature);
-                window.h5sdk.error(error => {
-				console.log(error)
-				$("p#errorCode").text(error.errorCode);
-				$("p#errorMessage").text(error.errorMessage);
+                    window.h5sdk.error(error => {
+                        console.log(error)
+                        $("p#errorCode").text(error.errorCode);
+                        $("p#errorMessage").text(error.errorMessage);
 
-				}) // config校验失败会触发error回调
+                    }) // config校验失败会触发error回调
 
-                console.log(appId)
-                console.log(timestamp)
-                console.log(nonceStr)
-                console.log(signature)
+                    console.log(appId)
+                    console.log(timestamp)
+                    console.log(nonceStr)
+                    console.log(signature)
+                },
+                dataType: "json"
             });
+
 
 
         }
 
         function clickBt() {
+            console.log("开始定位")
             window.h5sdk.ready(() => {
+                console.log("进入ready")
                 setTimeout(() => {
                     tt.getLocation({
                         type: 'gcj02',
-                        success(result) {
+                        async success(result) {
                             console.log(result);
                         },
                         fail(error) {
@@ -92,8 +102,8 @@
         <p id="timestamp"></p>
         <p id="nonceStr"></p>
         <p id="signature"></p>
-		<p id="errorCode"> </p>
-		<p id="errorMessage"> </p>
+        <p id="errorCode"> </p>
+        <p id="errorMessage"> </p>
     </div>
 </body>
 
