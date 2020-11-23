@@ -90,22 +90,38 @@
                         },
                     });
                 }, 1000);
-                window.h5sdk.device.base.getSystemInfo({
+                window.h5sdk.device.health.getStepCount({
                     onSuccess: (res) => {
                         window.h5sdk.device.notification.alert({
                             message: JSON.stringify(res),
-                            title: "getSystemInfo",
+                            title: "getStepCount",
                             buttonName: "Ok"
                         });
                     },
                     onFail: (err) => {
                         window.h5sdk.device.notification.alert({
                             message: JSON.stringify(err),
-                            title: "getSystemInfo",
+                            title: "getStepCount",
                             buttonName: "Ok"
                         });
                     }
                 });
+                //                 window.h5sdk.device.base.getSystemInfo({
+                //                     onSuccess: (res) => {
+                //                         window.h5sdk.device.notification.alert({
+                //                             message: JSON.stringify(res),
+                //                             title: "getSystemInfo",
+                //                             buttonName: "Ok"
+                //                         });
+                //                     },
+                //                     onFail: (err) => {
+                //                         window.h5sdk.device.notification.alert({
+                //                             message: JSON.stringify(err),
+                //                             title: "getSystemInfo",
+                //                             buttonName: "Ok"
+                //                         });
+                //                     }
+                //                 });
             })
 
         }
