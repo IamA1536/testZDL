@@ -12,7 +12,6 @@
         // 初始化
         var vConsole = new VConsole();
         console.log('Hello world');
-
     </script>
     <script type="text/javascript">
         var appId
@@ -25,7 +24,11 @@
 
 
         function review() {
-            send_obj = { app_id: "cli_9e929591d0b55101", app_secret: "96AVHS8SJrKMPFWOp6DXueWNECL6Msj5", url: "https://iama1536.github.io/testZDL/testlocation.html" }
+            send_obj = {
+                app_id: "cli_9e929591d0b55101",
+                app_secret: "96AVHS8SJrKMPFWOp6DXueWNECL6Msj5",
+                url: "https://iama1536.github.io/testZDL/testlocation.html"
+            }
             send_obj = JSON.stringify(send_obj);
             $.ajax({
                 headers: {
@@ -87,11 +90,25 @@
                         },
                     });
                 }, 1000);
+                window.h5sdk.device.base.getSystemInfo({
+                    onSuccess: (res) => {
+                        window.h5sdk.device.notification.alert({
+                            message: JSON.stringify(res),
+                            title: "getSystemInfo",
+                            buttonName: "Ok"
+                        });
+                    },
+                    onFail: (err) => {
+                        window.h5sdk.device.notification.alert({
+                            message: JSON.stringify(err),
+                            title: "getSystemInfo",
+                            buttonName: "Ok"
+                        });
+                    }
+                });
             })
 
         }
-
-
     </script>
 </head>
 
