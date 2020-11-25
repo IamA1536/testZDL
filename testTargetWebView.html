@@ -37,8 +37,17 @@
       <button onclick="navigateNew()">跳转</button>
     </div>
   </div>
-  <script>
+      <script
+      type="text/javascript"
+      src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"
+    ></script>
+    <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
 
+  <script>
+      window.onload = function () {
+        var vConsole = new VConsole();
+
+      };
     // document.addEventListener('click', (e) => {
     //   var node = e.target
     //   while ('BODY' !== node.nodeName) {
