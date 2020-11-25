@@ -73,11 +73,19 @@
 
     navigateNew = () => {
       // location.href = "https://www.tmall.com/"
-      window.h5sdk.biz.util.openLink({
-    url: "https://open.feishu.cn",
-    title: "Open platform",
-    newTab: false
-});
+      window.h5sdk.ready(() => {
+tt.openSchema({
+            schema: 'https://www.apple.com',
+            external: false,
+            success (res) {
+                console.log(`${res}`);
+            },
+            fail (res) {
+                console.log(`open fail`);
+            }
+        });
+      }
+                         })
     }
   </script>
 </body>
