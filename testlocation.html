@@ -74,7 +74,22 @@
 
 
         }
-
+        function clickBt2() {
+              window.h5sdk.ready(() => {
+                console.log("进入ready")
+                setTimeout(() => {
+                     tt.openSchema({
+            schema: 'https://www.apple.com',
+            external: false,
+            success(res) {
+              console.log(`${res}`);
+            },
+            fail(res) {
+              console.log(`open fail`);
+            }
+          });
+                }, 1000);
+        }
         function clickBt() {
             console.log("开始定位")
             window.h5sdk.ready(() => {
@@ -131,6 +146,8 @@
 <body>
     <div id="base" class="">
         <button id="doc" onclick="clickBt()" type="button">定位</button>
+        <button id="doc" onclick="clickBt2()" type="button">定位</button>
+        
         <p id="appId"></p>
         <p id="timestamp"></p>
         <p id="nonceStr"></p>
