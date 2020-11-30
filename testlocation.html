@@ -56,13 +56,16 @@
                     $("p#timestamp").text(dataJson.timestamp);
                     $("p#nonceStr").text(dataJson.nonceStr);
                     $("p#signature").text(dataJson.signature);
-                    window.h5sdk.error(error => {
-                        console.log(error)
-                        $("p#errorCode").text(error.errorCode);
-                        $("p#errorMessage").text(error.errorMessage);
+                    window.h5sdk.error(function(e) {
+                    return console.log(e, "errrorh5sdk")
+                })
+//                     window.h5sdk.error(error => {
+//                         console.log(error)
+//                         $("p#errorCode").text(error.errorCode);
+//                         $("p#errorMessage").text(error.errorMessage);
 
-                    }) // config校验失败会触发error回调
-
+//                     }) // config校验失败会触发error回调
+                    
                     console.log(appId)
                     console.log(timestamp)
                     console.log(nonceStr)
