@@ -17,6 +17,7 @@
   <button id="test" onclick="setMenuText()">【测试右导航文本】</button>
   <button id="test2" onclick="setMenuImg()">【测试右导航图片】</button>
   <button id="test2" onclick="setMenuLeftText()">【测试左导航文本】</button>
+    <button id="test2" onclick="setTitle()">【测试左导航文本】</button>
   <button onclick="document.title = Date.now()">set title</button>
   <button onclick="setHref()">跳转</button>
   <script type="text/javascript" src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"></script>
@@ -25,11 +26,15 @@
   <script>
     window.onload = function () {
       var vConsole = new VConsole();
-      clearMenu()
+//       clearMenu()
     };
     function setHref() {
 console.log('location.href');
 window.location.href = "https://iama1536.github.io/testZDL/testTitle.html"
+    }
+        function setTitle() {
+console.log('setTitle');
+        window.h5sdk.biz.navigation.setTitle({ title: 'title2' });
     }
 
     function setMenuImg() {
