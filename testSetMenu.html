@@ -20,6 +20,7 @@
     <button id="test2" onclick="setTitle()">【改标题】</button>
   <button onclick="document.title = Date.now()">set title</button>
   <button onclick="setHref()">跳转</button>
+  <button onclick="closeWindow()">关闭窗口</button>
   <script type="text/javascript" src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.8.js"></script>
   <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
 
@@ -129,7 +130,7 @@ console.log('setTitle');
         });
       })
     }
-
+  
     function clearMenu() {
 //       console.log('清空导航');
       window.h5sdk.ready(function () {
@@ -150,6 +151,13 @@ console.log('setTitle');
 
     })
   }
+        function closeWindow() {
+      window.opener=null;
+      window.open('','_self');
+      window.close();
+
+  }
+
   </script>
 </body>
 
