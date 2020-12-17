@@ -152,9 +152,13 @@ console.log('setTitle');
     })
   }
         function closeWindow() {
-      window.opener=null;
-      window.open('','_self');
-      window.close();
+                window.h5sdk.ready(function () {
+     window.h5sdk.biz.navigation.close({
+    onSuccess: function(result) {
+        console.log(result);
+    }
+});
+              })
 
   }
 
