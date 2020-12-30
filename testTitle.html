@@ -6,8 +6,15 @@
     <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
 </head>
 <script>
+
     window.onload = function () {
       var vConsole = new VConsole();
+      
+	document.cookie = 'LtpaToken=<%=ltpaToken%>;domain=.sanygroup.com;path=/';
+	alert(document.cookie );
+	setTimeout(function(){
+		<%-- location.href = '<%=StringUtil.isNotNull(target) ? StringUtil.replace(target, "|", "&") : path%>'; --%>
+	},1000);
     };
   addlang = () => {
 
